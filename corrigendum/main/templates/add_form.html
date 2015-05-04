@@ -1,0 +1,16 @@
+﻿{% extends '__base__.html' %}
+
+{% block title %} 新建勘误本 {% endblock %}
+
+{% block content %}
+
+<form action="/add/" method="post" >
+	{% csrf_token %}
+	<input id="id_title" maxlength="200" name="title" type="text" />
+	<br />
+	<textarea cols="40" id="id_text" name="text" rows="10"></textarea>
+	<br />
+	<input type="submit" value="创建" />
+</form>
+
+{% endblock %}

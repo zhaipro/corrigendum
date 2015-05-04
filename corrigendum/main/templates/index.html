@@ -1,0 +1,18 @@
+﻿{% extends '__base__.html' %}
+
+{% block title %} 勘误本列表 {% endblock %}
+
+{% block content %}
+
+<a href="{% url 'add_form' %}">创建勘误本</a>
+{% if corrigendum_list %}
+    <ul>
+    {% for corrigendum in corrigendum_list %}
+        <li><a href="{% url 'detail' corrigendum.id %}">{{ corrigendum.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>暂无勘误本！</p>
+{% endif %}
+
+{% endblock %}

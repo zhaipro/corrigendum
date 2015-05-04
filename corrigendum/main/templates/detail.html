@@ -1,0 +1,13 @@
+﻿{% extends '__base__.html' %}
+
+{% block title %} {{ corrigendum.title }} {% endblock %}
+
+{% block content %}
+
+<h1>{{ corrigendum.title }}</h1>
+<pre>
+{{ corrigendum.text }}
+</pre>
+<a href="{% url 'edit_form' corrigendum.id %}">编辑</a>
+
+{% endblock %}

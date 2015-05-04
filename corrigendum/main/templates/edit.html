@@ -1,0 +1,17 @@
+﻿{% extends '__base__.html' %}
+
+{% block title %} 编辑：{{ corrigendum.title }} {% endblock %}
+
+{% block content %}
+
+<form action="{% url 'save' %}" method="post" >
+{% csrf_token %}
+	<input name="pk" type="hidden" value="{{ corrigendum.id }}" />
+	<input id="id_title" maxlength="200" name="title" type="text" value="{{ corrigendum.title }}" />
+	<br />
+	<textarea cols="40" id="id_text" name="text" rows="10">{{ corrigendum.text }}</textarea>
+	<br />
+	<input type="submit" value="保存" />
+</form>
+
+{% endblock %}
