@@ -9,4 +9,6 @@ urlpatterns = [
 	url(r'^save', views.save, name='save'),
     url(r'^add_form/$', views.add_form, name='add_form'),
     url(r'^add/$', views.add),
+    url(r'^(?P<pk>[0-9]+)/history/$', views.history, name='history'),
+	url(r'^search/$', views.search, name='search'),
 ]

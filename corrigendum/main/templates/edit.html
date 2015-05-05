@@ -1,17 +1,23 @@
 ﻿{% extends '__base__.html' %}
 
-{% block title %} 编辑：{{ corrigendum.title }} {% endblock %}
+{% block title %} 编辑：{{ corrigendum.book.title }} {% endblock %}
 
 {% block content %}
 
-<form action="{% url 'save' %}" method="post" >
+<ul class="uk-tab" data-uk-tab>
+    <li><a href="{% url 'detail' corrigendum.book.id %}">阅读</a></li>
+	<li class="uk-active"><a href="">编辑</a></li>
+    <li><a href="{% url 'history' corrigendum.book.id %}">查看历史</a></li>
+</ul>
+
+<form action="{% url 'save' %}" method="post" class="uk-form">
 {% csrf_token %}
-	<input name="pk" type="hidden" value="{{ corrigendum.id }}" />
-	<input id="id_title" maxlength="200" name="title" type="text" value="{{ corrigendum.title }}" />
+	<input name="book_id" type="hidden" value="{{ corrigendum.book.id }}" />
+	<input id="id_title" maxlength="200" name="title" type="text" value="{{ corrigendum.book.title }}" />
 	<br />
 	<textarea cols="40" id="id_text" name="text" rows="10">{{ corrigendum.text }}</textarea>
 	<br />
-	<input type="submit" value="保存" />
+	<input type="submit" value="保存" class="uk-button" />
 </form>
 
 {% endblock %}

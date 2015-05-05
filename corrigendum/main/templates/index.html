@@ -4,11 +4,11 @@
 
 {% block content %}
 
-<a href="{% url 'add_form' %}">创建勘误本</a>
-{% if corrigendum_list %}
-    <ul>
-    {% for corrigendum in corrigendum_list %}
-        <li><a href="{% url 'detail' corrigendum.id %}">{{ corrigendum.title }}</a></li>
+{% if book_list %}
+<p>勘误本列表：</p>
+    <ul class="uk-list">
+    {% for book in book_list %}
+        <li><a href="{% url 'detail' book.id %}">{{ book.title }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

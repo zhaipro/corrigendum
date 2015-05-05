@@ -1,0 +1,21 @@
+{% extends '__base__.html' %}
+
+{% block title %} 历史：{{ book.title }} {% endblock %}
+
+{% block content %}
+
+<ul class="uk-tab" data-uk-tab>
+    <li><a href="{% url 'detail' book.id %}">阅读</a></li>
+	<li><a href="{% url 'edit_form' book.corrigendum_set.last.id %}">编辑</a></li>
+    <li class="uk-active"><a href="">查看历史</a></li>
+</ul>
+
+<h1>{{ book.title }}</h1>
+
+<ul class="uk-list uk-list-striped">
+{% for c in book.corrigendum_set.all %}
+	<li>{{ c.text }}</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

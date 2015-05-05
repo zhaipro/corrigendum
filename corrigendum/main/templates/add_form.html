@@ -4,13 +4,13 @@
 
 {% block content %}
 
-<form action="/add/" method="post" >
+<form action="/add/" method="post" class="uk-form">
 	{% csrf_token %}
 	<input id="id_title" maxlength="200" name="title" type="text" />
 	<br />
 	<textarea cols="40" id="id_text" name="text" rows="10"></textarea>
 	<br />
-	<input type="submit" value="创建" />
+	<input type="submit" value="创建" class="uk-button" />
 </form>
 
 {% endblock %}

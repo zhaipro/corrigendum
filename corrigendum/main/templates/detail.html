@@ -1,13 +1,26 @@
 ﻿{% extends '__base__.html' %}
 
-{% block title %} {{ corrigendum.title }} {% endblock %}
+{% block title %} {{ book.title }} {% endblock %}
 
 {% block content %}
 
-<h1>{{ corrigendum.title }}</h1>
-<pre>
-{{ corrigendum.text }}
-</pre>
-<a href="{% url 'edit_form' corrigendum.id %}">编辑</a>
+{% with latest_corrigendum=book.corrigendum_set.last %}
+
+<ul class="uk-tab" data-uk-tab>
+    <li class="uk-active"><a href="">阅读</a></li>
+	<li><a href="{% url 'edit_form' latest_corrigendum.id %}">编辑</a></li>
+    <li><a href="{% url 'history' book.id %}">查看历史</a></li>
+</ul>
+
+<article class="uk-article">
+    <h1 class="uk-article-title">{{ book.title }}</h1>
+    <p class="uk-article-meta">{{ latest_corrigendum.create_date }}</p>
+    <p class="uk-article-lead">lead</p>
+    {{ latest_corrigendum }}
+    <hr class="uk-article-divider">
+    {{ latest_corrigendum.text }}
+</article>
+
+{% endwith %}
 
 {% endblock %}
