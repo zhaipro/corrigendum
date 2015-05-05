@@ -2,35 +2,33 @@
 <html>
     <head>
         <title>{% block title%} 警告 {% endblock %}</title>
-		<link rel="stylesheet" href="/static/uikit/css/uikit.min.css">
-		<link rel="stylesheet" href="/static/uikit/css/uikit.gradient.min.css">
+
+		<!-- UIKit 核心 -->
+		<script src="/static/js/jquery.min.js"></script>
+		<link rel="stylesheet" href="/static/uikit/css/uikit.gradient.min.css" />
 		<script src="/static/uikit/js/uikit.min.js"></script>
+
+        <!-- Codemirror 和 marked 依赖 -->
+        <link rel="stylesheet" href="/static/CodeMirror/lib/codemirror.css" />
+        <script src="/static/CodeMirror/lib/codemirror.js"></script>
+        <script src="/static/CodeMirror/mode/markdown/markdown.js"></script>
+        <script src="/static/CodeMirror/addon/mode/overlay.js"></script>
+        <script src="/static/CodeMirror/mode/xml/xml.js"></script>
+        <script src="/static/CodeMirror/mode/gfm/gfm.js"></script>
+        <script src="/static/marked/marked.min.js"></script>
+
+        <!-- HTML 编辑器的 CSS 与 JavaScript -->
+		<link rel="stylesheet" href="/static/uikit/css/components/htmleditor.gradient.min.css" />
+        <script src="/static/uikit/js/components/htmleditor.min.js"></script>
     </head>
     <body>
-<!--
-	<nav class="uk-navbar">
-		<a href="/" class="uk-navbar-brand">勘误网</a>
-		<div class="uk-navbar-content uk-hidden-small">
-			<form action="{% url 'search' %}" class="uk-form uk-margin-remove uk-display-inline-block">
-				<input name="kw" type="text" placeholder="Search">
-				<button class="uk-button uk-button-primary">Submit</button>
-			</form>
-		</div>
-
-		<div class="uk-navbar-content uk-navbar-flip  uk-hidden-small">
-			<div class="uk-button-group">
-				<a class="uk-button uk-button-danger" href="{% url 'add_form' %}">创建勘误本</a>
-			</div>
-		</div>
-	</nav>
--->
 
 	<nav class="tm-navbar uk-navbar uk-navbar-attached">
 		<div class="uk-container uk-container-center">
 			<a class="uk-navbar-brand" href="/">勘误网</a>
 			<div class="uk-navbar-content">
 				<form action="{% url 'search' %}" class="uk-form uk-margin-remove uk-display-inline-block">
-					<input name="kw" type="text" placeholder="Search">
+					<input name="kw" type="text" placeholder="Search" />
 					<button class="uk-button uk-button-primary">Submit</button>
 				</form>
 			</div>
@@ -48,7 +46,7 @@
 	<div class="tm-middle">
 		<div class="uk-container uk-container-center">
         {% block content %} 你不能直接使用这个模板，你需要继承它。 {% endblock %}
-		<div>
+		</div>
 	</div>
     </body>
 </html>
