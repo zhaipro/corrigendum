@@ -29,11 +29,11 @@ def save(request):
     return HttpResponseRedirect(reverse('detail', args=(book_id,)))
 
 
-def add_form(request):
-    return render(request, 'add_form.html')
+def add_book_form(request):
+    return render(request, 'add_book.html')
 
 
-def add(request):
+def add_book(request):
     c = Corrigendum(title=request.POST['title'], text=request.POST['text'])
     c.save()
     return HttpResponseRedirect(reverse('detail', args=(c.id,)))

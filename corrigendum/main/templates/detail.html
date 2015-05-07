@@ -6,11 +6,20 @@
 
 {% with latest_corrigendum=book.corrigendum_set.last %}
 
-<ul class="uk-tab" data-uk-tab>
+<ul class="uk-tab" id='tab' data-uk-tab>
     <li class="uk-active"><a href="">阅读</a></li>
 	<li><a href="{% url 'edit_form' latest_corrigendum.id %}">编辑</a></li>
     <li><a href="{% url 'history' book.id %}">查看历史</a></li>
 </ul>
+
+<script>
+alert('aaaaa');
+$('#tab').on('change.uk.tab', function(event, item)
+{
+	debugger;
+	alert('haha');
+});
+</script>
 
 <article class="uk-article">
     <h1 class="uk-article-title">{{ book.title }}</h1>

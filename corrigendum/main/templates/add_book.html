@@ -1,0 +1,45 @@
+{% extends '__base__.html' %}
+
+{% block title %} 新建勘误本 {% endblock %}
+
+{% block content %}
+
+<div class="uk-grid">
+    <div class="uk-width-6-10">
+		<form action="{% url 'add_book' %}" method="post" class="uk-form">
+			{% csrf_token %}
+			<div class="uk-form-row">
+			<input maxlength="200" name="title" type="text" placeholder="书名" />
+			</div>
+			<div class="uk-form-row">
+			<input name="ISBN" type="text" placeholder="ISBN" />
+			</div>
+			<div class="uk-form-row">
+			<input type="submit" value="下一步" class="uk-button" />
+			</div>
+		</form>
+	</div>
+    <div class="uk-width-4-10">
+		<div class="uk-panel-box">
+
+		感谢你为勘误网添砖加瓦，条目创建成功后，你的名号将会永久保留在条目编辑页面。
+		提示  · · · · · ·
+
+		请务必确认输入的ISBN或统一书号的准确性，错误书号会导致重复创建等问题。
+
+		勘误网系统可以识别ISBN的各种常用格式：10位或13位，有连接号或无连接号，比如7208086125、9787208086128以及978-7-208-08612-8是同一本书的ISBN，输入任一种都可以。
+
+		统一书号的添加格式为：号码前加SH，用连接号衔接前后部分，如SH10009-476。
+
+		什么是ISBN，什么是统一书号？
+		想要添加的书籍既没有ISBN也没有统一书号，怎么办？
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+{% endblock %}

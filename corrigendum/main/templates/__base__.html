@@ -28,7 +28,7 @@
 			<a class="uk-navbar-brand" href="/">勘误网</a>
 			<div class="uk-navbar-content">
 				<form action="{% url 'search' %}" class="uk-form uk-margin-remove uk-display-inline-block">
-					<input name="kw" type="text" placeholder="Search" />
+					<input name="kw" type="text" placeholder="书名、作者、ISBN" />
 					<button class="uk-button uk-button-primary">Submit</button>
 				</form>
 			</div>
@@ -36,7 +36,7 @@
 
 			<div class="uk-navbar-content uk-navbar-flip">
 				<div class="uk-button-group">
-					<a class="uk-button uk-button-danger" href="{% url 'add_form' %}">创建勘误本</a>
+					<a class="uk-button uk-button-danger" href="{% url 'add_book_form' %}">创建勘误本</a>
 				</div>
 			</div>
 		</div>
